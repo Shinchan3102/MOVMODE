@@ -48,7 +48,7 @@ const Slider = ({ HeaderIcon, heading, mediaType, mediaCategory, casts, medias }
                                     : tmdbConfigs.posterPath(movie.profile_path)
                                     })`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', color: 'white'
                             }}>
-                                <NavLink to={`/${mediaType}/${movie.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
+                                <NavLink to={`/media/${mediaType}/${movie.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
                                     {
                                         casts === null ?
                                             <>

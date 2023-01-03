@@ -54,7 +54,7 @@ const FavoriteList = () => {
             return (
               <div className='cardCont horizontalSlides' style={{ backgroundImage: `url(${tmdbConfigs.backdropPath(media.mediaPoster || media.backdrop_path)})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} key={index}>
                 <RiDeleteBin5Fill className='dltFIcon' style={{ color: 'rgb(255,0,0)', position: 'absolute', top: '5px', right: '5px', fontSize: '30px', background: 'white', borderRadius: '50%', boxShadow: '1px 1px 3px black', padding: '5px', cursor: 'pointer' }} onClick={() => { del(media._id) }} />
-                <NavLink to={`/${media.mediaType}/${media.mediaId}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
+                <NavLink to={`/media/${media.mediaType}/${media.mediaId}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
                   <div className='UpperTransition d-flex align-items-center'>
                     <GiJusticeStar className='me-2' style={{ color: '#f8b803', fontSize: '20px' }} />{media.mediaRate}/10
                   </div>

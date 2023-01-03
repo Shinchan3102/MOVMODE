@@ -9,7 +9,7 @@ const Account = () => {
       <form className='d-flex flex-column'>
         <div className='d-flex align-items-end flex-wrap about_f_div'>
           <img src={userImg} alt='user' style={{ width: '150px',padding:'10px'}}></img>
-          <div>
+          <div style={{color:'#ffb800'}}>
             <h3>{user?.userProfile?.displayName}</h3>
           </div>
         </div>

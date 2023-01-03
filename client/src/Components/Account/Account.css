@@ -5,6 +5,7 @@
     box-shadow: 2px 2px 6px white;
     padding: 15px;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.036);
 }
 .ab_info{
     padding: 10px;

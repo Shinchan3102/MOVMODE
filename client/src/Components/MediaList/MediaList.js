@@ -6,8 +6,7 @@ import tmdbConfigs from '../../configs/tmdb';
 import './MediaList.css';
 import '../Slider/Slider.css';
 import Carousel from '../Carousel/Carousel';
-import Navbar from '../Navbar/Navbar';
-import { GiEclipseSaw, GiJusticeStar } from 'react-icons/gi';
+import { GiJusticeStar } from 'react-icons/gi';
 import { BsCalendarFill, BsChevronExpand,BsFillBookmarkStarFill  } from 'react-icons/bs';
 import Footer from '../Footer/Footer';
 import { HiCollection } from 'react-icons/hi';
@@ -69,7 +68,7 @@ const MediaList = () => {
                     medias.map((media, index) => {
                         return (
                             <div className='cardCont horizontalSlides' style={{ backgroundImage: `url(${tmdbConfigs.posterPath(media.poster_path || media.backdrop_path)})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} key={index}>
-                                <NavLink to={`/${mediaType}/${media.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
+                                <NavLink to={`/media/${mediaType}/${media.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
 
                                     <div className='UpperTransition d-flex align-items-center'>
                                         <GiJusticeStar className='me-2' style={{ color: '#f8b803', fontSize: '20px' }} />{media.vote_average}/10

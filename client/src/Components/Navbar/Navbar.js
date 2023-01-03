@@ -65,7 +65,7 @@ const Navbar = () => {
             <div className='row'>
                 <nav className={`navbar navbar-expand-lg navbar-${isDark ? 'dark' : 'light'} bg-transparent navDesign`}>
                     <div className="container-fluid  mx-auto col-md-10 col-11">
-                        <NavLink className="navbar-brand me-5 d-flex align-items-center justify-content-center" to='/' style={{color:'rgb(11 96 224)'}}>
+                        <NavLink className="navbar-brand me-5 d-flex align-items-center justify-content-center fw-bold fs-2" to='/' style={{color:'rgb(11 96 224)'}}>
                             {/* {
                                 title.map((word, index) => {
                                     return (
@@ -122,10 +122,10 @@ const Navbar = () => {
                     <NavLink to='/' onClick={() => setActiveElement('home')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'home' ? 'navActiveElement' : ''}`}>
                         <FaHome /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} >Home</div>
                     </NavLink>
-                    <NavLink to='/movie' onClick={() => setActiveElement('movie')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'movie' ? 'navActiveElement' : ''}`}>
+                    <NavLink to='/media/movie' onClick={() => setActiveElement('movie')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'movie' ? 'navActiveElement' : ''}`}>
                         <BsCollectionPlay /><div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} >Movie</div>
                     </NavLink>
-                    <NavLink to='/tv' onClick={() => setActiveElement('tv')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'tv' ? 'navActiveElement' : ''}`}>
+                    <NavLink to='/media/tv' onClick={() => setActiveElement('tv')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'tv' ? 'navActiveElement' : ''}`}>
                         <BsDisplay /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} > TV Series</div>
                     </NavLink>
                     <NavLink to={`${user?.token ? '/favorites' : '/'}`} onClick={() => user?.token ? setActiveElement('fav') : dispatch({ type: 'REG' })} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'fav' ? 'navActiveElement' : ''}`}>

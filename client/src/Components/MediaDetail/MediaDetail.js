@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { media_getDetail } from '../../actions/media';
 import tmdbConfigs from '../../configs/tmdb';
-import Navbar from '../Navbar/Navbar';
 import './MediaDetail.css';
 import { BsHeartFill } from 'react-icons/bs';
 import Slider from '../Slider/Slider';
@@ -67,10 +66,10 @@ const MediaDetail = () => {
                         <div className={`insideSlide_${isDark ? 'black' : 'white'} detailCont2 d-flex flex-wrap justify-content-around`} style={{ color: `${isDark ? 'white' : 'black'}`, padding: '120px 100px' }} >
                             <img src={`${tmdbConfigs.posterPath(media.poster_path || media.backdrop_path)}`} alt='' />
                             <div>
-                                <div style={{ fontSize: '50px', fontWeight: '700', wordWrap: 'break-wrap' }} className='setWidth my-2'>
+                                <div style={{ wordWrap: 'break-wrap' }} className='fontSet setWidth my-2'>
                                     {media.title || media.name}
                                 </div>
-                                <div style={{ fontSize: '50px', fontWeight: '700' }} className='setWidth my-2' >
+                                <div className='fontSet setWidth my-2' >
                                     {media?.release_date?.split('-')[0] || media?.first_air_date?.split('/')[0]}
                                 </div>
                                 <div className='setWidth d-flex flex-wrap align-items-center my-2'>

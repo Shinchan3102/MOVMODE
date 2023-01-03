@@ -82,7 +82,7 @@ const Person = () => {
               listMedias.map((media, index) => {
                 return (
                   <div className='cardCont horizontalSlides' style={{ backgroundImage: `url(${tmdbConfigs.backdropPath(media.poster_path || media.backdrop_path)})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} key={index}>
-                    <NavLink to={`/${media.media_type}/${media.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
+                    <NavLink to={`/media/${media.media_type}/${media.id}`} className='insideHorizontal d-flex flex-column justify-content-end align-items-start p-2' style={{ color: 'white', textDecoration: 'none' }}>
                       <div className='UpperTransition d-flex align-items-center'>
                         <GiJusticeStar className='me-2' style={{ color: '#f8b803', fontSize: '20px' }} />{media.vote_average}/10
                       </div>

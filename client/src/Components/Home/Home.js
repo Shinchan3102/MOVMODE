@@ -6,11 +6,8 @@ import Slider from '../Slider/Slider';
 import Footer from '../Footer/Footer';
 import { HiCollection } from 'react-icons/hi';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
-import Loading from '../Loading/Loading';
 
 const Home = () => {
-  // const {isLoading}=useSelector((state)=>state.user);
 
   const sections = [
     [HiCollection, "POPULAR MOVIES", tmdbConfigs.mediaType.movie, tmdbConfigs.mediaCategory.popular, null, null],
@@ -19,14 +16,6 @@ const Home = () => {
     [BsFillBookmarkStarFill, 'TOP RATED SERIES', tmdbConfigs.mediaType.tv, tmdbConfigs.mediaCategory.top_rated, null, null]
   ];
 
-  // if(isLoading){
-  //   return (
-  //     <div>
-  //       hii
-  //     </div>
-  //   )
-  // }
-  // console.log(isLoading);
 
   return (
     <div>

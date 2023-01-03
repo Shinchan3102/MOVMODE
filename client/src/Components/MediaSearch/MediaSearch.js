@@ -44,7 +44,7 @@ const MediaSearch = () => {
                         medias.map((media, index) => {
                             return (
                                 <>
-                                    <NavLink to={`/${mediaType}/${media.id}`} className='m-1 ps-2 searchResultBoxElement' key={index}>
+                                    <NavLink to={`/media/${mediaType}/${media.id}`} className='m-1 ps-2 searchResultBoxElement' key={index}>
                                         {
                                             media.title || media.name
                                         }

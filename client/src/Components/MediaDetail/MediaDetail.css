@@ -19,12 +19,28 @@
     background-color: rgb(11 96 224);
     cursor: pointer;
 }
+.fontSet{
+    font-weight: 700;
+    font-size: 50px;
+}
 .favCont{
-    /* background-color: rgba(255, 255, 255, 0.363); */
     background-color: rgba(5, 1, 78, 0.433);
     padding: 10px 15px;
     border-radius: 5px;
 }
 .favIcon:hover{
     cursor: pointer;
+}
+
+@media  screen and (max-width:500px) {
+    .detailCont2 img{
+        width: 250px;
+    }
+    .fontSet{
+        font-weight: 300;
+        font-size: 25px;
+    }
+    .setWidth{
+        width: 100%;
+    }
 }

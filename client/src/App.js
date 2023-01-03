@@ -15,9 +15,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/:mediaType' element={<MediaList />} />
-        <Route path='/:mediaType/:mediaId' element={<MediaDetail />} />
-        <Route path='/person/:id' element={<Person />} />
+        <Route path='/media/:mediaType' element={<MediaList />} />
+        <Route path='/media/:mediaType/:mediaId' element={<MediaDetail />} />
+        <Route path='/media/person/:id' element={<Person />} />
         <Route path='/favorites' element={<FavoriteList />} />
         <Route path='/account' element={<Account />} />
         <Route path='*' element={<NotFound />} />

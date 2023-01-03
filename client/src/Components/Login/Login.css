@@ -85,3 +85,12 @@
     color: white;
     font-weight: 500;
 }
+
+@media screen and (max-width:700px){
+    .createGroup{
+        width: 90%;
+    }
+    .registerSubCont{
+        width: 90%;
+    }
+}

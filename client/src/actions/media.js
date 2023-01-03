@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import * as api from '../api';
 
 export const genre_getList = ({mediaType}) => async (dispatch) => {
@@ -21,6 +22,9 @@ export const media_getList = ({ mediaType, mediaCategory, page }) => async (disp
         return data;
 
     } catch (err) {
+        // const navigate=useNavigate();
+        // navigate('/notfound');
+        dispatch({type:'END_LOADING'});
         console.log('media getlist' + err);
     }
 }
