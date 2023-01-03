@@ -1,0 +1,136 @@
+/* .videoCont{
+    overflow-y: hidden;
+    padding: 5px;
+    border: 2px solid rgb(255,0,0);
+    border-radius: 3px;
+    scroll-behavior: smooth;
+}
+.videoSubcont iframe{
+    height: 500px;
+    width: 700px;
+    transition:all 0.2s ;
+}
+.videoSubcont iframe:hover{
+    transform: scale3d(1.02,1.02,1.02);
+}
+.videoSubcont{
+    margin: 5px;
+} */
+
+.slider-container {
+  background: linear-gradient(
+    149deg,
+    rgb(247, 0, 255) 0%,
+    rgb(255, 145, 0) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.slider_ {
+  width: 100%;
+  /* max-width: 600px; */
+  height: 400px;
+  margin: 20px;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides_ {
+  display: flex;
+  overflow-x: scroll;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.slide_ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  height: 400px;
+  scroll-snap-align: center;
+  margin-right: 0px;
+  box-sizing: border-box;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+
+.slide_:hover{
+    transform: scale3d(0.98,0.98,0.98);
+}
+
+.slide_ a {
+  background: none;
+  border: none;
+}
+
+a.slide__prev,
+.slider_::before {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  left: 5%;
+}
+
+iframe{
+    width: 100%;
+    /* height: 300px; */
+    height: 100%;
+}
+
+a.slide__next,
+.slider_::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  right: 5%;
+}
+
+/* .slider_::before,
+.slider_::after,
+.slide__prev,
+.slide__next {
+  position: absolute;
+  top: 48%;
+  width: 35px;
+  height: 35px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  padding: 3px;
+  box-sizing: border-box;
+} */
+
+/* .slider_::before,
+.slider_::after {
+  content: "";
+  z-index: 1;
+  background: none;
+  pointer-events: none;
+} */
+
+.slider__nav {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+}
+
+.slider__navlink {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 10px 0 10px;
+}

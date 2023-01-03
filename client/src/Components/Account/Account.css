@@ -1,0 +1,31 @@
+.about{
+    margin: auto;
+    margin-top: 100px;
+    width: 600px;
+    box-shadow: 2px 2px 6px white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.ab_info{
+    padding: 10px;
+}
+.ab_info div{
+    display: flex;
+    justify-content: space-between;
+}
+.one{
+    font-weight: 600;
+    color: white;
+}
+.two{
+    color: #0d6efd;
+}
+@media screen and (max-width:650px) {
+    .about{
+        width: 350px;
+    }
+    .about_f_div{
+        justify-content: center;
+        text-align: center;
+    }
+}

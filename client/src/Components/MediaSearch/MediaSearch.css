@@ -1,0 +1,51 @@
+.searchResultBox{
+    width: 300px;
+    background-color: #010418d7;
+    max-height: 400px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.searchResultBoxElement{
+    color: white;
+    text-decoration: none;
+}
+.searchResultBox hr{
+    width: 90%;
+}
+.categorySetterBox{
+    position: absolute;
+    border: 2px solid white;
+    background-color: #010418ee;
+    top: 0;
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
+}
+.categorySetterBox div div{
+    cursor: pointer;
+    margin: 2px;
+    padding: 2px;
+    z-index: 3;
+    /* background-color: rgba(255, 255, 255, 0.395); */
+}
+.categorySetterBox div div:hover{
+    background-color: rgb(3 149 255 / 64%);
+}
+
+.setBg{
+    background-color: rgb(3 149 255 / 64%);
+}
+
+.crossIcon{
+    position: absolute;
+    right: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    color: red;
+}

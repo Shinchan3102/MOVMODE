@@ -1,0 +1,19 @@
+.textArea{
+    width: 90%;
+    margin:10px auto;
+    height: 200px;
+    border-radius: 5px;
+}
+.reviewSubCont{
+    background-color: rgb(129 124 124 / 12%);
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin: 5px;
+}
+.dltIcon{
+    background-color: rgb(178, 255, 222);
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+}

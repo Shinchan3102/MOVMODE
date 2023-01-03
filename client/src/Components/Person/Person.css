@@ -1,0 +1,15 @@
+.personDetail{
+    margin: 60px 0px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0px;
+}
+.personDetail img{
+    height: 500px;
+}
+.detailSummary{
+    max-width: 600px;
+    padding: 20px;
+}
