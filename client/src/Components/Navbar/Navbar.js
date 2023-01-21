@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { MdLightMode } from 'react-icons/md';
-import { FiMoon } from 'react-icons/fi';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import Login from '../Login/Login';
 import decode from 'jwt-decode';
@@ -11,6 +10,7 @@ import Loading from '../Loading/Loading';
 import { FaHome } from 'react-icons/fa';
 import { BsDisplay, BsCollectionPlay, BsHeart, BsArrowRight } from 'react-icons/bs';
 import { RxPerson, RxCross2 } from 'react-icons/rx';
+import {RiLoginBoxFill, RiLogoutBoxFill } from 'react-icons/ri';
 
 const Navbar = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -46,16 +46,6 @@ const Navbar = () => {
     const [activeElement, setActiveElement] = useState('home');
     const [displayElement, setDisplayElement] = useState(false);
 
-    const title = [
-        ['M', '20px', '3px'],
-        ['O', '18px', '3px'],
-        ['V', '16px', '3px'],
-        ['M', '14px', '3px'],
-        ['O', '16px', '3px'],
-        ['D', '18px', '3px'],
-        ['E', '20px', '3px']
-    ];
-
     if (isLoading) {
         return <Loading />
     }
@@ -64,47 +54,48 @@ const Navbar = () => {
         <>
             <div className='row'>
                 <nav className={`navbar navbar-expand-lg navbar-${isDark ? 'dark' : 'light'} bg-transparent navDesign`}>
-                    <div className="container-fluid  mx-auto col-md-10 col-11">
-                        <NavLink className="navbar-brand me-5 d-flex align-items-center justify-content-center fw-bold fs-2" to='/' style={{color:'rgb(11 96 224)'}}>
-                            {/* {
-                                title.map((word, index) => {
-                                    return (
-                                        <div style={{ fontSize: word[1], paddingRight: word[2] }} key={index}>
-                                            {word[0]}
-                                        </div>
-                                    )
-                                })
-                            } */}
+                    <div className="container-fluid mx-auto col-md-10 col-11 navSmall">
+                        <NavLink className="text-decoration-none fw-bold fs-2 accountLarge" to='/' style={{ color: 'rgb(11 96 224)' }}>
                             MOVMODE
                         </NavLink>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                                <li className='nav-item m-2'>
-                                    <MediaSearch />
-                                </li>
-                            </ul>
-                            <ul className='navbar-nav d-flex justify-content-center align-items-center'>
-                                <li className='nav-item'>
-                                    {
-                                        isDark ?
-                                            <FiMoon className='Dark_mode' onClick={() => { dispatch({ type: 'LIGHT' }) }} />
-                                            :
-                                            <MdLightMode className='Light_mode' onClick={() => { dispatch({ type: 'DARK' }) }} />
-                                    }
-                                </li>
-                                <li className='nav-item'>
-                                    {user ?
-                                        <button className='m-2 btn Danger' onClick={logout}>Logout</button>
+                        <NavLink className="text-decoration-none fw-bold fs-2 accountShort" to='/' style={{ color: 'rgb(11 96 224)' }}>
+                            MM
+                        </NavLink>
+                        <ul className="mx-auto mb-2 mb-lg-0 ps-0">
+                            <li className='listStyle m-2'>
+                                <MediaSearch />
+                            </li>
+                        </ul>
+                        <ul className='d-flex justify-content-center align-items-center accountLarge'>
+                            <li className='listStyle accountLarge'>
+                                {
+                                    isDark ?
+                                        <MdDarkMode className='Dark_mode accountLarge' onClick={() => { dispatch({ type: 'LIGHT' }) }} />
                                         :
-                                        <button className='m-2 btn Danger' onClick={setRegister}>Register</button>
-                                    }
-                                </li>
-                            </ul>
-
-                        </div>
+                                        <MdLightMode className='Light_mode accountLarge' onClick={() => { dispatch({ type: 'DARK' }) }} />
+                                }
+                            </li>
+                                {user ?
+                                    <RiLogoutBoxFill className='m-2 registerBtn loginBtn accountLarge' onClick={logout} />
+                                    :
+                                    <RiLoginBoxFill className='m-2 registerBtn accountLarge' onClick={setRegister} />
+                                }
+                        </ul>
+                        <ul className='d-flex justify-content-center align-items-center accountShort' style={{position:'fixed', bottom:'50px',right:'10px'}}>
+                            <li className='listStyle accountShort'>
+                                {
+                                    isDark ?
+                                        <MdDarkMode className='Dark_mode accountShort' onClick={() => { dispatch({ type: 'LIGHT' }) }} />
+                                        :
+                                        <MdLightMode className='Light_mode accountShort' onClick={() => { dispatch({ type: 'DARK' }) }} />
+                                }
+                            </li>
+                                {user ?
+                                    <RiLogoutBoxFill className='m-2 registerBtn loginBtn accountShort' onClick={logout} />
+                                    :
+                                    <RiLoginBoxFill className='m-2 registerBtn accountShort' onClick={setRegister} />
+                                }
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -114,22 +105,22 @@ const Navbar = () => {
                     <div className='d-flex align-items-center justify-content-center accountLarge'>
                         <BsArrowRight style={{ cursor: 'pointer' }} className={`accountLarge ${displayElement ? 'hideDesc' : ''}`} onClick={() => setDisplayElement(true)} />
                         <NavLink to='/' className={` text-decoration-none ${displayElement ? '' : 'hideDesc'}`} onClick={() => setActiveElement('home')} style={{ color: 'white', fontSize: '23px', cursor: 'pointer' }}>
-                            <div className={`me-2 ${displayElement ? '' : 'hideDesc'}`}>MOVMODE</div>
+                            <div className={`me-2 ${displayElement ? '' : 'hideDesc'} accountLarge`}>MOVMODE</div>
                         </NavLink>
-                        <RxCross2 className={`${displayElement ? '' : 'hideDesc'}`} onClick={() => setDisplayElement(false)} style={{ cursor: 'pointer' }} />
+                        <RxCross2 className={`${displayElement ? '' : 'hideDesc'} accountLarge`} onClick={() => setDisplayElement(false)} style={{ cursor: 'pointer' }} />
                     </div>
                     <hr className='accountLarge' />
                     <NavLink to='/' onClick={() => setActiveElement('home')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'home' ? 'navActiveElement' : ''}`}>
-                        <FaHome /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} >Home</div>
+                        <FaHome /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'} accountLarge`} >Home</div>
                     </NavLink>
                     <NavLink to='/media/movie' onClick={() => setActiveElement('movie')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'movie' ? 'navActiveElement' : ''}`}>
-                        <BsCollectionPlay /><div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} >Movie</div>
+                        <BsCollectionPlay /><div className={`ms-2 ${displayElement ? '' : 'hideDesc'} accountLarge`} >Movie</div>
                     </NavLink>
                     <NavLink to='/media/tv' onClick={() => setActiveElement('tv')} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'tv' ? 'navActiveElement' : ''}`}>
-                        <BsDisplay /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} > TV Series</div>
+                        <BsDisplay /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'} accountLarge`} > TV Series</div>
                     </NavLink>
                     <NavLink to={`${user?.token ? '/favorites' : '/'}`} onClick={() => user?.token ? setActiveElement('fav') : dispatch({ type: 'REG' })} className={`d-flex align-items-center text-decoration-none navbarHovEffect ${activeElement === 'fav' ? 'navActiveElement' : ''}`}>
-                        <BsHeart /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'}`} >Favorites</div>
+                        <BsHeart /> <div className={`ms-2 ${displayElement ? '' : 'hideDesc'} accountLarge`} >Favorites</div>
                     </NavLink>
                     <NavLink to={`${user?.token ? '/account' : '/'}`} onClick={() => user?.token ? setActiveElement('account') : dispatch({ type: 'REG' })} className={`accountShort text-decoration-none navbarHovEffect ${activeElement === 'account' ? 'navActiveElement' : ''}`} style={{ fontSize: '20px' }}>
                         <RxPerson className='accountShort' />

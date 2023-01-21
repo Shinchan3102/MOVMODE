@@ -9,7 +9,17 @@
     font-size: 15px;
   }
 
-
+.registerBtn{
+  color: rgb(0, 88, 220);
+  font-size: 30px;
+  border-radius: 5px;
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.408);
+}
+.loginBtn{
+  color: red;
+}
   .Danger,.Danger:focus{
     background-color: rgb(11 96 224);
     color: white;
@@ -29,10 +39,13 @@
 .Dark_mode,.Light_mode{
   cursor: pointer;
   font-size: 30px;
-  color: white;
+  color: #001673;
+  border-radius: 5px;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.299);
 }
 .Light_mode{
-  color: white;
+  color: #970202;
 }
 
 .searchBox{
@@ -40,7 +53,7 @@
   padding: 5px 10px;
   border-radius: 20px;
   background-color: #0104188f;
-  width: 300px;
+  max-width: 300px;
   color: white;
 }
 
@@ -55,6 +68,9 @@ input:hover, input:focus,input:focus-visible,input:focus-within{
   outline: 0;
 }
 
+.listStyle{
+  list-style-type: none;
+}
 
 .navbarCont{
   position: fixed;
@@ -72,6 +88,7 @@ input:hover, input:focus,input:focus-visible,input:focus-within{
   flex-direction: column;
   justify-content: space-between;
   bottom: 0;
+  backdrop-filter: blur(4px);
 }
 
 .navbarHovEffect{
@@ -120,5 +137,29 @@ input:hover, input:focus,input:focus-visible,input:focus-within{
   }
   .accountLarge{
     display: none;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .searchBox input{
+    width: 0;
+  }
+  .searchBox{
+    border: 0;
+  }
+  .filter{
+    display:none;
+  }
+  .searchBox:hover{
+    border: 2px solid white;
+    position: absolute;
+    top: -20px;
+    right: -150px;
+  }
+  .searchBox:hover .filter{
+    display: block;
+  }
+  .searchBox:hover input{
+    width: 300px;
   }
 }

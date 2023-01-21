@@ -5,15 +5,18 @@
     border-radius: 5px;
 }
 .reviewSubCont{
-    background-color: rgb(129 124 124 / 12%);
+    background-color: rgba(11, 96, 224, 0.089);
     border-radius: 10px;
     padding: 5px 15px;
     margin: 5px;
+    border: 1px solid rgb(11 96 224);
+    position: relative;
 }
 .dltIcon{
-    background-color: rgb(178, 255, 222);
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
+    color: red;
+    z-index: 3;
+    right: 2px;
+    top: 2px;
 }

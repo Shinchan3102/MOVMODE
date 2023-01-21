@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { review_add, review_remove } from '../../actions/review';
 import { FaListAlt } from 'react-icons/fa';
 import './Review.css';
-import { RiDeleteBin5Fill } from 'react-icons/ri';
+import { TiDelete } from 'react-icons/ti';
 
 const Review = ({ reviews, media, mediaType }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -73,14 +73,14 @@ const Review = ({ reviews, media, mediaType }) => {
                 listReviews.slice(page, page + length).map((review, index) => {
                     return (
                         <div key={index} className='reviewSubCont'>
-                            <h3 className='d-flex justify-content-between'>
-                                <div>{review.user.displayName || user?.userProfile?.displayName}</div>
+                            <div className='d-flex justify-content-between'>
+                                <div style={{fontSize:'20px', color:'rgb(11 96 224)' }}>{review.user.displayName || user?.userProfile?.displayName}</div>
                                 {
                                     (user?.userProfile.displayName === review.user.displayName || user?.userProfile._id===review.user) &&
-                                    <RiDeleteBin5Fill className='dltIcon' style={{ color: 'rgb(255,0,0)' }} onClick={() => { del(review._id) }} />
+                                    <TiDelete className='dltIcon' onClick={() => { del(review._id) }} />
                                 }
-                            </h3>
-                            <div className='ps-2'>
+                            </div>
+                            <div className='ps-2' style={{fontSize:'15px'}}>
                                 {review.content}
                             </div>
                         </div>

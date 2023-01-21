@@ -22,7 +22,6 @@ const MediaSearch = () => {
     useEffect(() => {
         const getSearch = async () => {
             const data = await dispatch(media_search({ mediaType, query, page: 1 }));
-            // console.log(data.data);
             setMedias(data.data.results);
         }
         if (query.trim().length > 0)
@@ -35,16 +34,16 @@ const MediaSearch = () => {
 
         <div className='position-relative'>
             <div className='searchBox d-flex justify-content-around align-items-center'>
-                <CiSearch className='me-2' style={{ color: 'white', fontWeight: '700', fontSize: '20px' }} />
+                <CiSearch className='me-2' style={{ color: 'white', fontWeight: '700', fontSize: '20px', backdropFilter: 'blur(2px)' }} />
                 <input type={'text'} placeholder='Search Your Movie' value={query} onChange={(e) => {
-                    setQuery(e.target.value)
+                    setQuery(e.target.value.trim())
                 }} />
-                <div className='searchResultBox'>
+                <div className={`searchResultBox ${query.length > 0 ? 'p-2 px-3' : ''}`}>
                     {
                         medias.map((media, index) => {
                             return (
                                 <>
-                                    <NavLink to={`/media/${mediaType}/${media.id}`} className='m-1 ps-2 searchResultBoxElement' key={index}>
+                                    <NavLink to={`/media/${mediaType}/${media.id}`} className='searchResultBoxElement' key={index}>
                                         {
                                             media.title || media.name
                                         }
@@ -55,13 +54,13 @@ const MediaSearch = () => {
                         })
                     }
                     {
-                        (query.trim().length > 0 && medias.length === 0 ?
+                        (query.length > 0 && medias.length === 0 ?
                             <div className='m-1 ps-2 searchResultBoxElement'>
                                 No results found
                             </div> : '')
                     }
                 </div>
-                <BiSlider style={{ fontSize: '20px', cursor: 'pointer' }} onClick={handleFilter} />
+                <BiSlider className='filter' style={{ fontSize: '20px', cursor: 'pointer' }} onClick={handleFilter} />
                 <div className='categorySetterBox' style={{ display: display }}>
                     <ImCross className='crossIcon' onClick={() => setDisplay('none')} />
                     <div className='my-2' style={{ fontWeight: '500' }}>Choose Your Search Category:</div>

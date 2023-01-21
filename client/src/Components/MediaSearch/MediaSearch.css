@@ -1,5 +1,5 @@
 .searchResultBox{
-    width: 300px;
+    max-width: 300px;
     background-color: #010418d7;
     max-height: 400px;
     overflow-y: scroll;
@@ -8,6 +8,7 @@
     left: 0px;
     border-radius: 20px;
     transition: all 0.2s;
+    backdrop-filter: blur(4px);
 }
 
 .searchResultBoxElement{
@@ -15,7 +16,7 @@
     text-decoration: none;
 }
 .searchResultBox hr{
-    width: 90%;
+    width: 100%;
 }
 .categorySetterBox{
     position: absolute;
@@ -23,7 +24,7 @@
     background-color: #010418ee;
     top: 0;
     border-radius: 10px;
-    width: 300px;
+    max-width: 300px;
     padding: 10px;
 }
 .categorySetterBox div div{

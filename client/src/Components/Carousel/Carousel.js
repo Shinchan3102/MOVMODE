@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { genre_getList, media_getList } from '../../actions/media';
 import './Carousel.css';
 import tmdbConfigs from '../../configs/tmdb';
+import { NavLink } from 'react-router-dom';
 
 const Carousel = ({ mediaType, mediaCategory }) => {
     const { isDark } = useSelector((state) => state.user);
@@ -31,8 +32,8 @@ const Carousel = ({ mediaType, mediaCategory }) => {
                     movies.map((movie, index) => {
                         return (
                             <div className='slide' key={index} style={{ backgroundImage: `url(${tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)})` }}>
-                                <div className={`insideSlide_${isDark ? 'black' : 'white'} d-flex justify-content-center align-items-start flex-column`} style={{ color: `${isDark ? 'white' : 'black'}` }} >
-                                    <h1 className='my-3'>
+                                <div className={`insideSlide_${isDark ? 'black' : 'white'} d-flex justify-content-center align-items-start flex-column my-5`} style={{ color: `${isDark ? 'white' : 'black'}` }} >
+                                    <h1 className='my-5'>
                                         {movie.title || movie.name}
                                     </h1>
                                     <div className='my-3 carouselElement'>
@@ -41,7 +42,7 @@ const Carousel = ({ mediaType, mediaCategory }) => {
                                                 {movie.vote_average}
                                             </span>
                                         </span>
-                                        <span>{movie.genre_ids.map((id, index) => {
+                                        <span>{movie.genre_ids.slice(0,2).map((id, index) => {
                                             return (
                                                 <button className='btn Danger mx-2' style={{ borderRadius: '20px' }} key={index}>{genres.find(genre => genre.id === id)?.name}</button>
                                             )
@@ -49,9 +50,9 @@ const Carousel = ({ mediaType, mediaCategory }) => {
                                         </span>
                                     </div>
                                     <div className='my-3 carouselElement'>
-                                        {movie.overview}
+                                        {movie.overview.length>250?movie.overview.slice(0,247)+'...':movie.overview}
                                     </div>
-                                    <button className='btn Danger my-2'>Watch now</button>
+                                    <NavLink to={`/media/${mediaType}/${movie.id}`} className='btn Danger my-2'>Watch now</NavLink>
                                 </div>
                             </div>
                         )
